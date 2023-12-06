@@ -10,7 +10,7 @@ public class CategoryTests
         var category = new Category
         {
             CategoryName = "Test Category"
-        };
+        };  
 
         Assert.Equal("Test Category", category.CategoryName);
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lh3K7wj43IKtvzAUVM8LNraUJtpE60my+w5M1pcI9H/uOU0mXz6bdE4rGAVICwaSFi5JtCBFBVpWA1PVD1V+0w==",
+  "dgSpecHash": "wYLd30itZUwASFEkS4/Mb9JzNhFMYBdbQMtwLfENCofQiX/z2SCicl2+WYJ3pD5sQUJ0nypWZ0y74K6xVciUvw==",
   "success": true,
-  "projectFilePath": "C:\\Mynotesapp\\mynotes\\Mynotes.csproj",
+  "projectFilePath": "C:\\Mynotesapp\\Mynotes\\Mynotes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

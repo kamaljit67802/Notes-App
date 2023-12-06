@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Mynotesapp\\Mynotes\\Mynotes.csproj": {}
+    "C:\\Mynotesapp\\MynotesLibrary\\MynotesLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Mynotesapp\\Mynotes\\Mynotes.csproj": {
+    "C:\\Mynotesapp\\MynotesLibrary\\MynotesLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Mynotesapp\\Mynotes\\Mynotes.csproj",
-        "projectName": "Mynotes",
-        "projectPath": "C:\\Mynotesapp\\Mynotes\\Mynotes.csproj",
+        "projectUniqueName": "C:\\Mynotesapp\\MynotesLibrary\\MynotesLibrary.csproj",
+        "projectName": "MynotesLibrary",
+        "projectPath": "C:\\Mynotesapp\\MynotesLibrary\\MynotesLibrary.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Mynotesapp\\Mynotes\\obj\\",
+        "outputPath": "C:\\Mynotesapp\\MynotesLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,28 +44,6 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[7.0.12, )"
-            },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[7.0.12, )"
-            },
-            "Microsoft.AspNetCore.Identity.UI": {
-              "target": "Package",
-              "version": "[7.0.12, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[7.0.12, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "target": "Package",
-              "version": "[7.0.12, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -78,9 +56,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
