@@ -61,6 +61,11 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+// Map API Controllers
+app.MapControllerRoute(
+    name: "api",
+    pattern: "api/{controller=NoteApi}/{action=GetNotes}/{id?}");
+
 // Map Razor Pages
 app.MapRazorPages();
 
