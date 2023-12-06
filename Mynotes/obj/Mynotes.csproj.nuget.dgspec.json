@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Mynotesapp\\Mynotes\\Mynotes.csproj": {}
+    "C:\\Mynotesapp\\mynotes\\Mynotes.csproj": {}
   },
   "projects": {
-    "C:\\Mynotesapp\\Mynotes\\Mynotes.csproj": {
+    "C:\\Mynotesapp\\mynotes\\Mynotes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Mynotesapp\\Mynotes\\Mynotes.csproj",
+        "projectUniqueName": "C:\\Mynotesapp\\mynotes\\Mynotes.csproj",
         "projectName": "Mynotes",
-        "projectPath": "C:\\Mynotesapp\\Mynotes\\Mynotes.csproj",
+        "projectPath": "C:\\Mynotesapp\\mynotes\\Mynotes.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Mynotesapp\\Mynotes\\obj\\",
+        "outputPath": "C:\\Mynotesapp\\mynotes\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

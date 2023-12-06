@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Mynotes.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace NotesApp.Data
+namespace Mynotes.Data
 {
     public class ApplicationDbContext : IdentityDbContext<User>
     {

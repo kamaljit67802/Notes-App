@@ -1,0 +1,6 @@
+C:\Mynotesapp\mynotes.tests\bin\Debug\net7.0\CoverletSourceRootsMapping
+C:\Mynotesapp\mynotes.tests\obj\Debug\net7.0\Mynotes.tests.csproj.AssemblyReference.cache
+C:\Mynotesapp\mynotes.tests\obj\Debug\net7.0\Mynotes.tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Mynotesapp\mynotes.tests\obj\Debug\net7.0\Mynotes.tests.AssemblyInfoInputs.cache
+C:\Mynotesapp\mynotes.tests\obj\Debug\net7.0\Mynotes.tests.AssemblyInfo.cs
+C:\Mynotesapp\mynotes.tests\obj\Debug\net7.0\Mynotes.tests.csproj.CoreCompileInputs.cache
