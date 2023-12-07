@@ -1,12 +1,15 @@
-namespace MyNotes.ViewModels
+using System.ComponentModel.DataAnnotations;
+
+namespace Mynotes.ViewModels
 {
     public class LoginViewModel
-    {  
+    {
         [Required]
-        public string? UserName { get; set;}
+        [Display(Name = "Email Address")]
+        [EmailAddress]
+        public string? Email { get; set; }
+
         [Required]
-        public string? Password { get; set;}
-        [Display ("Remember Me")]
-        public bool RememberMe { get; set; }
+        public string? Password { get; set; }
     }
 }
