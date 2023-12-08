@@ -6,23 +6,22 @@ namespace Mynotes.ViewModels
     {
         [Required]
         [Display(Name = "First Name")]
-        public string? FirstName { get; set; }
+        public string FirstName { get; set; } = string.Empty;
 
         [Required]
-        [Display(Name = "Last Name")]
-        public string? LastName { get; set; }
+        public string LastName { get; set; } = string.Empty;
 
         [Required]
         [Display(Name = "Email Address")]
         [EmailAddress]
-        public string? Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
         [Required]
-        public string? Password { get; set; }
+        public string Password { get; set; } = string.Empty;
 
         [Required]
         [Display(Name = "Confirmed Password")]
-        [Compare("Password")]
-        public string? ConfirmPassword { get; set; }
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmedPassword { get; set; } = string.Empty;
     }
 }
