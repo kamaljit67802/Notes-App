@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using Mynotes.Models; // Make sure to include the correct namespace for your User model
+using Mynotes.Models; 
 using Mynotes.ViewModels;
 
 namespace Mynotes.Controllers
