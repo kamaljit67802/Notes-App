@@ -83,3 +83,5 @@ C:\Mynotesapp\mynotes\bin\Debug\net7.0\Mynotes.runtimeconfig.json
 C:\Mynotesapp\mynotes\bin\Debug\net7.0\Mynotes.pdb
 C:\Mynotesapp\mynotes\obj\Debug\net7.0\Mynotes.genruntimeconfig.cache
 C:\Mynotesapp\mynotes\obj\Debug\net7.0\ref\Mynotes.dll
+C:\Mynotesapp\mynotes\bin\Debug\net7.0\MynotesLibrary.dll
+C:\Mynotesapp\mynotes\bin\Debug\net7.0\MynotesLibrary.pdb

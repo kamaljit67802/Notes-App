@@ -1,0 +1,14 @@
+C:\Mynotesapp\MynotesLibrary\obj\Debug\net7.0\MynotesLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Mynotesapp\MynotesLibrary\obj\Debug\net7.0\MynotesLibrary.AssemblyInfoInputs.cache
+C:\Mynotesapp\MynotesLibrary\obj\Debug\net7.0\MynotesLibrary.AssemblyInfo.cs
+C:\Mynotesapp\MynotesLibrary\obj\Debug\net7.0\MynotesLibrary.csproj.CoreCompileInputs.cache
+C:\Mynotesapp\MynotesLibrary\bin\Debug\net7.0\MynotesLibrary.deps.json
+C:\Mynotesapp\MynotesLibrary\bin\Debug\net7.0\MynotesLibrary.runtimeconfig.json
+C:\Mynotesapp\MynotesLibrary\bin\Debug\net7.0\MynotesLibrary.dll
+C:\Mynotesapp\MynotesLibrary\bin\Debug\net7.0\MynotesLibrary.pdb
+C:\Mynotesapp\MynotesLibrary\obj\Debug\net7.0\MynotesLibrary.csproj.AssemblyReference.cache
+C:\Mynotesapp\MynotesLibrary\obj\Debug\net7.0\MynotesLibrary.dll
+C:\Mynotesapp\MynotesLibrary\obj\Debug\net7.0\refint\MynotesLibrary.dll
+C:\Mynotesapp\MynotesLibrary\obj\Debug\net7.0\MynotesLibrary.pdb
+C:\Mynotesapp\MynotesLibrary\obj\Debug\net7.0\MynotesLibrary.genruntimeconfig.cache
+C:\Mynotesapp\MynotesLibrary\obj\Debug\net7.0\ref\MynotesLibrary.dll
