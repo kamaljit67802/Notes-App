@@ -4,13 +4,8 @@ namespace Mynotes.ViewModels
 {
     public class LoginViewModel
     {
-        [Required]
-        public string Username { get; set; }
-
-        [Required]
-        public string Password { get; set; }
-
-        [Display(Name = "Remember Me")]
-        public bool Rememberme { get; set; }
+        public string? UserName { get; set; }
+        public string? Password { get; set; }
+        public bool RememberMe { get; set; }
     }
 }
