@@ -53,5 +53,25 @@ namespace Mynotes.Controllers
         {
             return View(new LoginViewModel());
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(
+                    model.UserName,
+                    model.Password,
+                    model.RememberMe,
+                    false);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction(nameof(Index), "Home");
+                }
+            }
+
+            return View(model);
+        }
     }
 }
