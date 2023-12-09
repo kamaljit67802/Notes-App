@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Mynotes.Models; 
 using Mynotes.ViewModels;
-using System.Threading.Tasks; // Add this for Task
+using System.Threading.Tasks;
 
 namespace Mynotes.Controllers
 {
@@ -72,6 +72,13 @@ namespace Mynotes.Controllers
             }
 
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction(nameof(Index), "Home");
         }
     }
 }
