@@ -2827,7 +2827,8 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.12",
           "Microsoft.AspNetCore.Identity.UI": "7.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.12",
-          "Microsoft.EntityFrameworkCore.Tools": "7.0.12"
+          "Microsoft.EntityFrameworkCore.Tools": "7.0.12",
+          "MynotesLibrary": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Mynotes.dll": {}
@@ -2838,6 +2839,22 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "MynotesLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "7.0.12",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.12",
+          "Microsoft.AspNetCore.Identity.UI": "7.0.12",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.12"
+        },
+        "compile": {
+          "bin/placeholder/MynotesLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MynotesLibrary.dll": {}
+        }
       }
     }
   },
@@ -8472,6 +8489,11 @@
       "type": "project",
       "path": "../Mynotes/Mynotes.csproj",
       "msbuildProject": "../Mynotes/Mynotes.csproj"
+    },
+    "MynotesLibrary/1.0.0": {
+      "type": "project",
+      "path": "../MynotesLibrary/MynotesLibrary.csproj",
+      "msbuildProject": "../MynotesLibrary/MynotesLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {

@@ -76,3 +76,12 @@ C:\Mynotesapp\mynotes\obj\Debug\net7.0\scopedcss\projectbundle\Mynotes.bundle.sc
 C:\Mynotesapp\mynotes\obj\Debug\net7.0\Mynotes.dll
 C:\Mynotesapp\mynotes\obj\Debug\net7.0\refint\Mynotes.dll
 C:\Mynotesapp\mynotes\obj\Debug\net7.0\Mynotes.pdb
+C:\Mynotesapp\mynotes\bin\Debug\net7.0\appsettings.Development.json
+C:\Mynotesapp\mynotes\bin\Debug\net7.0\appsettings.json
+C:\Mynotesapp\mynotes\bin\Debug\net7.0\Mynotes.staticwebassets.runtime.json
+C:\Mynotesapp\mynotes\bin\Debug\net7.0\Mynotes.deps.json
+C:\Mynotesapp\mynotes\bin\Debug\net7.0\Mynotes.runtimeconfig.json
+C:\Mynotesapp\mynotes\bin\Debug\net7.0\Mynotes.pdb
+C:\Mynotesapp\mynotes\obj\Debug\net7.0\Mynotes.csproj.CopyComplete
+C:\Mynotesapp\mynotes\obj\Debug\net7.0\Mynotes.genruntimeconfig.cache
+C:\Mynotesapp\mynotes\obj\Debug\net7.0\ref\Mynotes.dll
