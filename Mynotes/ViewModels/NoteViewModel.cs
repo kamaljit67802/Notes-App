@@ -1,10 +1,9 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema; // Add this using directive
 
-namespace Mynotes.Models
+namespace Mynotes.ViewModels
 {
-    public class Note
+    public class NoteViewModel
     {
         public int Id { get; set; }
 
@@ -20,10 +19,11 @@ namespace Mynotes.Models
         [Required(ErrorMessage = "Created Date is required")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
-        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public DateTime CreatedDate { get; set; }
 
-        [ForeignKey("User")]
+        [Required(ErrorMessage = "User Id is required")]
         public string? UserId { get; set; }
-        public User? User { get; set; }
+
+
     }
 }
