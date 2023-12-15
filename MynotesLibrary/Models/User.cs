@@ -1,6 +1,7 @@
 // Mynotes.Models.User.cs
 
 using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic; // Add this using directive
 using System.ComponentModel.DataAnnotations;
 
 namespace Mynotes.Models
@@ -16,5 +17,7 @@ namespace Mynotes.Models
         [StringLength(50, ErrorMessage = "Last Name cannot exceed 50 characters")]
         [Display(Name = "Last Name")]
         public string? LastName { get; set; }
+
+        public List<Note>? Notes { get; set; } // Move this property inside the class
     }
 }

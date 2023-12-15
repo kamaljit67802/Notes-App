@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema; // Add this using directive
 
 namespace Mynotes.Models
 {
@@ -20,7 +21,9 @@ namespace Mynotes.Models
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime CreatedDate { get; set; }
+
+        [ForeignKey("User")]
+        public string? UserId { get; set; }
+        public User? User { get; set; }
     }
 }
-
-
