@@ -1,7 +1,10 @@
+// AccountController.cs
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Mynotes.Models;
 using Mynotes.ViewModels;
+using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
 namespace Mynotes.Controllers
@@ -10,27 +13,28 @@ namespace Mynotes.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly ILogger<AccountController> _logger;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _logger = logger;
         }
 
         [HttpGet]
-        public IActionResult Register() => View(new RegisterViewModel());
+        public IActionResult Register()
+        {
+            return View(new RegisterViewModel());
+        }
 
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
+            _logger.LogInformation("Registration attempt.");
+
             if (ModelState.IsValid)
             {
-                if (string.IsNullOrWhiteSpace(model.Email))
-                {
-                    ModelState.AddModelError(nameof(model.Email), "Email is required.");
-                    return View(model);
-                }
-
                 var user = new User
                 {
                     FirstName = model.FirstName,
@@ -43,6 +47,7 @@ namespace Mynotes.Controllers
 
                 if (result.Succeeded)
                 {
+                    _logger.LogInformation($"User {user.UserName} registered successfully.");
                     await _signInManager.SignInAsync(user, false);
                     return RedirectToAction(nameof(Index), "Home");
                 }
@@ -50,6 +55,7 @@ namespace Mynotes.Controllers
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
+                    _logger.LogError($"Error during registration: {error.Description}");
                 }
             }
 
@@ -57,48 +63,51 @@ namespace Mynotes.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login() => View(new LoginViewModel());
+        public IActionResult Login()
+        {
+            _logger.LogInformation("Login page requested.");
+            return View(new LoginViewModel());
+        }
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
+            _logger.LogInformation("Login attempt.");
+
             if (ModelState.IsValid)
             {
-                if (string.IsNullOrWhiteSpace(model.UserName) || string.IsNullOrWhiteSpace(model.Password))
+                var user = await _userManager.FindByNameAsync(model.UserName);
+
+                if (user != null)
                 {
-                    ModelState.AddModelError(string.Empty, "Username and password are required.");
-                    return View(model);
+                    var result = await _signInManager.PasswordSignInAsync(
+                        user,
+                        model.Password,
+                        model.RememberMe,
+                        lockoutOnFailure: false);
+
+                    if (result.Succeeded)
+                    {
+                        _logger.LogInformation($"User {user.UserName} logged in successfully.");
+                        return RedirectToAction(nameof(Index), "Home");
+                    }
+
+                    if (result.RequiresTwoFactor)
+                    {
+                        _logger.LogInformation("Two-factor authentication is required.");
+                        return RedirectToAction(nameof(Index), "Home");
+                    }
+
+                    if (result.IsLockedOut)
+                    {
+                        _logger.LogWarning("User account is locked out.");
+                        return RedirectToAction(nameof(Index), "Home");
+                    }
                 }
 
-                var result = await _signInManager.PasswordSignInAsync(
-                    model.UserName,
-                    model.Password,
-                    model.RememberMe,
-                    lockoutOnFailure: false);
-
-                if (result.Succeeded)
-                {
-                    return RedirectToAction(nameof(Index), "Home");
-                }
-
-                if (result.RequiresTwoFactor)
-                {
-                    // Handle two-factor authentication, if needed
-                    // You may add code here if you have two-factor authentication
-                    return RedirectToAction(nameof(Index), "Home"); // Example redirection
-                }
-
-                if (result.IsLockedOut)
-                {
-                    // Handle account lockout, if needed
-                    // You may add code here to handle lockout
-                    return RedirectToAction(nameof(Index), "Home"); // Example redirection
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt");
-                    return View(model);
-                }
+                ModelState.AddModelError(string.Empty, "Invalid login attempt");
+                _logger.LogError("Invalid login attempt.");
+                return View(model);
             }
 
             return View(model);
@@ -107,6 +116,8 @@ namespace Mynotes.Controllers
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
+            _logger.LogInformation("Logout attempt.");
+
             await _signInManager.SignOutAsync();
             return RedirectToAction(nameof(Index), "Home");
         }

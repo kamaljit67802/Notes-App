@@ -9,6 +9,7 @@ namespace Mynotes.ViewModels
         public string FirstName { get; set; } = string.Empty;
 
         [Required]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; } = string.Empty;
 
         [Required]
@@ -17,6 +18,7 @@ namespace Mynotes.ViewModels
         public string Email { get; set; } = string.Empty;
 
         [Required]
+        [Display(Name = "Password")]
         public string Password { get; set; } = string.Empty;
 
         [Required]

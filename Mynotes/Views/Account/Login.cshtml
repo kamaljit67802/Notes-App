@@ -7,7 +7,7 @@
     <div class="col-8 mx-auto">
         <h1 class="mt-2">Login</h1>
         <hr>
-        <form asp-action="Login" asp-controller="Account" method="post">
+        <form asp-route-action="Login" asp-route-controller="Account" method="post">
             <div class="mb-3">
                 <label asp-for="UserName"></label>
                 <input type="text" asp-for="UserName" class="form-control" />
