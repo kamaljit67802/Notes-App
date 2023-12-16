@@ -119,7 +119,7 @@ namespace Mynotes.Controllers
             _logger.LogInformation("Logout attempt.");
 
             await _signInManager.SignOutAsync();
-            return RedirectToAction(nameof(Index), "Home");
+            return RedirectToAction(nameof(Index), "Note");
         }
     }
 }

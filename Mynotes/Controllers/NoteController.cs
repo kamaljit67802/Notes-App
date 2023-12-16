@@ -19,7 +19,7 @@ namespace Mynotes.Controllers
             _userManager = userManager;
         }
 
-        // GET: Note/Index
+        // GET: /Note
         public IActionResult Index()
         { 
             var userId = _userManager.GetUserId(HttpContext.User);
@@ -27,7 +27,7 @@ namespace Mynotes.Controllers
             return View(notes);
         }
 
-        // GET: Note/Create
+        // GET: /Note/Create
         [HttpGet]
         public IActionResult Create()
         {
@@ -35,7 +35,7 @@ namespace Mynotes.Controllers
             return View(new NoteViewModel());
         }
 
-        // POST: Note/Create
+        // POST: /Note/Create
         [HttpPost]
         public IActionResult Create(NoteViewModel model)
         {
