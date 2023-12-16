@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity; 
 using Mynotes.ViewModels;
 using Mynotes.Models;
+using System.Linq; 
 
 namespace Mynotes.Controllers
 {
@@ -55,37 +56,61 @@ namespace Mynotes.Controllers
             }
             return View(model);
         }
+
         // GET: /Note/Edit
-[HttpGet]
-public IActionResult Edit(int id)
-{
-    var userId = _userManager.GetUserId(HttpContext.User);
-    var note = _context.Notes.FirstOrDefault(n => n.Id == id);
-
-    if (note != null && note.UserId == userId)
-    {
-        var model = new NoteViewModel()
+        [HttpGet]
+        public IActionResult Edit(int id)
         {
-            Id = note.Id,
-            Title = note.Title,
-            Description = note.Description,
-            CreatedDate = note.CreatedDate,
-            Color = note.Color,
-            UserId = userId
-        };
+            var userId = _userManager.GetUserId(HttpContext.User);
+            var note = _context.Notes.FirstOrDefault(n => n.Id == id);
 
-        return View(model);
-    }
-    else
-    {
-        return Content("You are not authorized");
-    }
-}
+            if (note != null && note.UserId == userId)
+            {
+                var model = new NoteViewModel()
+                {
+                    Id = note.Id,
+                    Title = note.Title,
+                    Description = note.Description,
+                    CreatedDate = note.CreatedDate,
+                    Color = note.Color,
+                    UserId = userId
+                };
 
-            
-            
-           
+                return View(model);
+            }
+            else
+            {
+                return Content("You are not authorized");
+            }
         }
 
+        [HttpPost]
+        public IActionResult Edit(NoteViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var userId = _userManager.GetUserId(HttpContext.User);
+                if (model.UserId == userId)
+                {
+                    var note = new Note
+                    {
+                        Id = model.Id,
+                        Title = model.Title,
+                        Description = model.Description,
+                        UserId = model.UserId,
+                        Color = model.Color,
+                        CreatedDate = model.CreatedDate
+                    };
+                    _context.Notes.Update(note);
+                    _context.SaveChanges();
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    return Content("You are not authorized");
+                }
+            }
+            return View(model);
+        }
     }
-
+}
