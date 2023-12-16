@@ -1,5 +1,4 @@
 // NoteController.cs
-
 using Microsoft.AspNetCore.Mvc;
 using Mynotes.Data;
 using Microsoft.AspNetCore.Authorization;
@@ -34,7 +33,6 @@ namespace Mynotes.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var currentUser = _userManager.GetUserAsync(User).Result;
             return View(new NoteViewModel());
         }
 
@@ -64,9 +62,9 @@ namespace Mynotes.Controllers
         public IActionResult Edit(int id)
         {
             var userId = _userManager.GetUserId(HttpContext.User);
-            var note = _context.Notes.FirstOrDefault(n => n.Id == id);
+            var note = _context.Notes.FirstOrDefault(n => n.Id == id && n.UserId == userId);
 
-            if (note != null && note.UserId == userId)
+            if (note != null)
             {
                 var model = new NoteViewModel()
                 {
@@ -82,7 +80,7 @@ namespace Mynotes.Controllers
             }
             else
             {
-                return Content("You are not authorized");
+                return Content("You are not authorized or note not found");
             }
         }
 
@@ -92,45 +90,43 @@ namespace Mynotes.Controllers
             if (ModelState.IsValid)
             {
                 var userId = _userManager.GetUserId(HttpContext.User);
-                if (model.UserId == userId)
+                var note = _context.Notes.FirstOrDefault(n => n.Id == model.Id && n.UserId == userId);
+
+                if (note != null)
                 {
-                    var note = new Note
-                    {
-                        Id = model.Id,
-                        Title = model.Title,
-                        Description = model.Description,
-                        UserId = userId,
-                        Color = model.Color,
-                        CreatedDate = model.CreatedDate
-                    };
-                    _context.Notes.Update(note);
+                    note.Title = model.Title;
+                    note.Description = model.Description;
+                    note.Color = model.Color;
                     _context.SaveChanges();
                     return RedirectToAction(nameof(Index));
                 }
                 else
                 {
-                    return Content("You are not authorized");
+                    return Content("You are not authorized or note not found");
                 }
             }
             return View(model);
         }
 
+        // GET: /Note/Delete
         public IActionResult Delete(int id)
         {
             if (id == 0)
             {
                 return Content("Note Id is null");
             }
+
             var userId = _userManager.GetUserId(HttpContext.User);
-            var note = _context.Notes.FirstOrDefault(n => n.Id == id);
-            if (note.UserId == userId)
+            var note = _context.Notes.FirstOrDefault(n => n.Id == id && n.UserId == userId);
+
+            if (note != null)
             {
                 _context.Notes.Remove(note);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
-
             }
-            return Content("You are not authorized");
+
+            return Content("You are not authorized or note not found");
         }
     }
 }
