@@ -7,7 +7,9 @@
 <div class ="col-8 mx-auto">
 <h1 class =" mt-2">Create Note </h1>
 <hr/>
-<form asp-action = "Create" asp-Controller= "Note" method = "post">
+<form asp-action = "Edit" asp-Controller= "Note" method = "post">
+<input type="hidden" asp-for="Id">
+<input type = "hidden" asp-for="CreatedDate">
             <div class="mb-3">
                 <label asp-for="Title"></label>
                 <input type="text" asp-for="Title" class="form-control" />

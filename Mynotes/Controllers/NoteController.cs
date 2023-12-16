@@ -55,5 +55,37 @@ namespace Mynotes.Controllers
             }
             return View(model);
         }
+        // GET: /Note/Edit
+[HttpGet]
+public IActionResult Edit(int id)
+{
+    var userId = _userManager.GetUserId(HttpContext.User);
+    var note = _context.Notes.FirstOrDefault(n => n.Id == id);
+
+    if (note != null && note.UserId == userId)
+    {
+        var model = new NoteViewModel()
+        {
+            Id = note.Id,
+            Title = note.Title,
+            Description = note.Description,
+            CreatedDate = note.CreatedDate,
+            Color = note.Color,
+            UserId = userId
+        };
+
+        return View(model);
+    }
+    else
+    {
+        return Content("You are not authorized");
     }
 }
+
+            
+            
+           
+        }
+
+    }
+
