@@ -1,10 +1,12 @@
+// NoteController.cs
+
 using Microsoft.AspNetCore.Mvc;
 using Mynotes.Data;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity; 
+using Microsoft.AspNetCore.Identity;
 using Mynotes.ViewModels;
 using Mynotes.Models;
-using System.Linq; 
+using System.Linq;
 
 namespace Mynotes.Controllers
 {
@@ -12,9 +14,9 @@ namespace Mynotes.Controllers
     public class NoteController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<User> _userManager;
 
-        public NoteController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        public NoteController(ApplicationDbContext context, UserManager<User> userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -22,7 +24,7 @@ namespace Mynotes.Controllers
 
         // GET: /Note
         public IActionResult Index()
-        { 
+        {
             var userId = _userManager.GetUserId(HttpContext.User);
             var notes = _context.Notes.Where(n => n.UserId == userId).ToList();
             return View(notes);
@@ -97,7 +99,7 @@ namespace Mynotes.Controllers
                         Id = model.Id,
                         Title = model.Title,
                         Description = model.Description,
-                        UserId = model.UserId,
+                        UserId = userId,
                         Color = model.Color,
                         CreatedDate = model.CreatedDate
                     };
@@ -112,14 +114,16 @@ namespace Mynotes.Controllers
             }
             return View(model);
         }
-        public IActionResult Delete (int id){
-            if(id==0)
+
+        public IActionResult Delete(int id)
+        {
+            if (id == 0)
             {
                 return Content("Note Id is null");
             }
             var userId = _userManager.GetUserId(HttpContext.User);
             var note = _context.Notes.FirstOrDefault(n => n.Id == id);
-            if(note.UserId==userId)
+            if (note.UserId == userId)
             {
                 _context.Notes.Remove(note);
                 _context.SaveChanges();
