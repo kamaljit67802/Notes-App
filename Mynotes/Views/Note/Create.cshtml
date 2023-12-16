@@ -1,12 +1,13 @@
-@model  Mynotes.ViewModels.RegisterViewModel
+@model Mynotes.ViewModels.NoteViewModel
+
 @{
-    ViewData["Title"] = "Create Note";
+    ViewData["Title"] = "Register";
 }
 <div class ="row">
 <div class ="col-8 mx-auto">
-<h1 class =" mt-2">Create Note</h1>
+<h1 class =" mt-2">Create Note </h1>
 <hr/>
-<form >
+<form asp-action = "Create" asp-Controller= "Note" method = "post">
             <div class="mb-3">
                 <label asp-for="Title"></label>
                 <input type="text" asp-for="Title" class="form-control" />
@@ -14,20 +15,21 @@
             </div>
             <div class="mb-3">
                 <label asp-for="Description"></label>
-                <textarea asp-for="Description"  class="form-control" rows = "20" ></textarea>
-                <span class="text-danger" asp-validation-for="Password"></span>
+                <textarea asp-for ="Description" asp-for="Password" class="form-control rows= 20" ></textarea>
+                <span class="text-danger" asp-validation-for="Description "></span>
             </div>
-            <div class="mb-3">
-            <div class ="d-flex align-items-center justify-content-center gap-3">
-                <label> Choose Background Colour </label>
-                    <input type="color" asp-for="Color" />
-                    
+            <div class="mb-3"> 
+            <div class = "d-flex align-items-center justigy-content-center gap-3">
+                <label> Choose Background Color </label>
+                <input type = "color" asp-for = "Color">
                 </div>
-                <span class="text-danger" asp-validation-for="RememberMe"></span>
+           
             </div>
             <div class="mb-3">
-                <input type="submit" class=" form-control btn btn-success" value = "Save">
+                <input type="submit" class="form-control btn btn-success"value = "Save">
             </div>
         </form>
 </div>
-<div>
+</div>
+
+

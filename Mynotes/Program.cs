@@ -24,10 +24,10 @@ builder.Services.AddDefaultIdentity<User>(options =>
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews();
-builder.Services.ConfigureApplicationCookie(options=>){
+builder.Services.ConfigureApplicationCookie(options=>{
     options.LoginPath = "/Login";
 
-}
+});
 
 var app = builder.Build();
 
