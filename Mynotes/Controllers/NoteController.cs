@@ -112,5 +112,21 @@ namespace Mynotes.Controllers
             }
             return View(model);
         }
+        public IActionResult Delete (int id){
+            if(id==0)
+            {
+                return Content("Note Id is null");
+            }
+            var userId = _userManager.GetUserId(HttpContext.User);
+            var note = _context.Notes.FirstOrDefault(n => n.Id == id);
+            if(note.UserId==userId)
+            {
+                _context.Notes.Remove(note);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+
+            }
+            return Content("You are not authorized");
+        }
     }
 }
